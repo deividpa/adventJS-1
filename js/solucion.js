@@ -27,8 +27,9 @@ console.log(ovejasFiltradas)
 
 // Solución
 
-const contarOvejas = (objOve) => {
-  const obejasFiltradas = objOve.filter(({ name, color }) => {
+function contarOvejas(ovejas) {
+  // aquí tu magia
+  const solucion = ovejas.filter(({ name, color }) => {
     let lowerName = name.toLowerCase();
     console.log(
       color === "rojo" && lowerName.includes("n") && lowerName.includes("a")
@@ -37,10 +38,20 @@ const contarOvejas = (objOve) => {
       color === "rojo" && lowerName.includes("n") && lowerName.includes("a")
     );
   });
+  return solucion;
+}
 
-  return obejasFiltradas;
-};
+const ovejasFiltradas = contarOvejas(ovejas);
 
-console.log(contarOvejas(ovejas));
+console.log(ovejasFiltradas);
+
+if (Object.keys(ovejasFiltradas).length > 0) {
+  let contenedor = document.getElementById("container");
+  let pre = document.createElement("pre");
+  let code = document.createElement("code");
+  code.textContent = JSON.stringify(ovejasFiltradas, null, 4);
+  pre.append(code);
+  contenedor.append(pre);
+}
 
 //console.log(ovejasFiltradas);
